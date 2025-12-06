@@ -1,0 +1,28 @@
+﻿<Window x:Class="VNA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VNA"
+        mc:Ignorable="d"
+        AllowDrop="True"
+        xmlns:cn="clr-namespace:VNA.Controls"
+        Drop="Window_Drop"
+        Title="VNA" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <cn:AlertTextBox Drop="Window_Drop" x:Name="Filn" DialogText="脚本：" Text="{Binding Path=Fi}" IsReadOnly="True" ToolTip="请将文件拖放在窗口上"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBox TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" Drop="Window_Drop" x:Name="Shower" IsReadOnly="False"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Click="Run_Click" Content="执行" x:Name="Run" HorizontalAlignment="Right" FontSize="20"/>
+        </Grid>
+    </Grid>
+</Window>
