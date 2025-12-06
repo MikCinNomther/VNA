@@ -26,11 +26,12 @@ namespace VNA
     public partial class MainWindow : Window, INotifyPropertyChanged  // 实现接口
     {
         private string _fi;
-
-        public MainWindow()
+        string[] args = null;
+        public MainWindow(string[] argv = null)
         {
             InitializeComponent();
             DataContext = this;
+            args = argv;
         }
 
         public string Fi
@@ -429,6 +430,14 @@ namespace VNA
         {
             if(Shower.Text != string.Empty)
             RunShell(Shower.Text);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (args.Length > 0)
+            {
+                Fi = args[0];
+            }
         }
     }
 }

@@ -12,5 +12,11 @@ namespace VNA
     /// </summary>
     public partial class App : Application
     {
+        static App application = new App();
+        [STAThread]
+        static void Main(string[] args)
+        {
+            application.Run(new MainWindow(args));
+        }
     }
 }
